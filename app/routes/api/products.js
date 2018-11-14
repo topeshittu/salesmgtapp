@@ -65,4 +65,4 @@ function updateproduct(req, res) {
 }
 
 //export all the functions
-module.exports = { getproducts, postproduct, getproducts, deleteproduct, updateproduct };
+export defaults { getproducts, postproduct, getproducts, deleteproduct, updateproduct };

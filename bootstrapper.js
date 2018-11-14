@@ -15,6 +15,26 @@ var app = express();
  app.use("/styles",  express.static(__dirname + '/public/css/'));
  app.use("/scripts", express.static(__dirname + '/public/js/'));
  app.use("/images",  express.static(__dirname + '/public/images/'));
+
+
+
+
+ app.use(bodyParser.json());                                     
+app.use(bodyParser.urlencoded({extended: true}));               
+app.use(bodyParser.text());                                    
+app.use(bodyParser.json({ type: 'application/json'}));  
+
+app.get("/", (req, res) => res.json({message: "Welcome to our shop!"}));
+
+app.route("/book")
+	.get(book.getBooks)
+	.post(book.postBook);
+app.route("/book/:id")
+	.get(book.getBook)
+	.delete(book.deleteBook)
+	.put(book.updateBook);
+
+
 // *** server config *** //process.env.PORT , process.env.IP,
 var server   = http.createServer(app);
 var port = process.env.PORT || 3000;
