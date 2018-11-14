@@ -1,0 +1,134 @@
+/*------------------------------------*\
+ $CONFIG
+ \*------------------------------------*/
+/**
+ * Variables
+ */
+/**
+ * Housekeeping
+ * 1. Position our wrapper in the dead centre of the page
+ */
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.wrapper {
+  margin: 0 auto;
+  
+}
+/*------------------------------------*\
+ $PEN-STYLES
+ \*------------------------------------*/
+/* Clearing */
+.group:before, .group:after {
+  content: " ";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  *zoom: 1;
+}
+/* Layout */
+.header {
+  border-bottom: 2px solid gainsboro;
+  padding: 12px 24px;
+  text-align: right;
+}
+/* Icons */
+.icon {
+  color: gainsboro;
+  font-size: 36px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.icon.active {
+  color: black;
+}
+.icon:hover {
+  cursor: pointer;
+}
+.icon:first-child {
+  margin-left: 0;
+}
+.icon--list {
+  font-size: 39px;
+}
+/* Products */
+.products {
+  padding: 12px;
+}
+/* Product */
+.product {
+  float: left;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+/* Product Inner */
+/* Product Image */
+.product__image {
+  margin-bottom: 24px;
+}
+.product__image img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin : 0px auto;
+}
+/* Product Name */
+.product__name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+/* Product Price */
+.product__price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+/* Product Short Description */
+.product__short-description {
+  margin-bottom: 24px;
+}
+/* Add to Cart */
+.add-to-cart {
+  background: rebeccapurple;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.add-to-cart:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+/* List View */
+.list .product__image {
+  float: left;
+  width: 33.33333%;
+}
+.list .product__details {
+  float: left;
+  padding-left: 24px;
+  padding-bottom: 64px;
+  text-align: left;
+  width: 66.66666%;
+}
+.list .add-to-cart {
+  width: 50%;
+}
+/* Widths */
+.grid .product {
+  width: 33.33333%;
+}
+.list .product {
+  width: 100%;
+}
