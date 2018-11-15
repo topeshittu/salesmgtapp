@@ -73,10 +73,7 @@ app.get('/setup', function(req, res) {
 	});
 });
 
-// basic route (http://localhost:8080)
-app.get('/', function(req, res) {
-	res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
+
 
 // ---------------------------------------------------------
 // get an instance of the router for api routes
@@ -178,8 +175,15 @@ apiRoutes.get('/check', function(req, res) {
 	res.json(req.decoded);
 });
 
-app.use('/api', apiRoutes);
+app.use('/api/v1/api', apiRoutes);
 
+
+// ---------------------------------------------------------
+// front end routes
+// ---------------------------------------------------------
+app.get('/', function(req, res){
+   res.render();
+});
 // =================================================================
 // start the server ================================================
 // =================================================================

@@ -1,6 +1,6 @@
 module.exports = {
 
-	'secret': 'ilovescotchyscotch',
+	'secret': 'apitesting',
 	'database': 'mongodb://noder:noderauth@proximus.modulusmongo.net:27017/so9pojyN'
 
 };
