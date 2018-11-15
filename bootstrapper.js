@@ -40,10 +40,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));  
 
-app.get("/", (req, res) => res.json({message: "Welcome to our api application!"}));
 
+// view engine setup
+ app.use(express.static(path.join(__dirname, 'UI')));
 
+ app.use("/styles",  express.static(__dirname + 'UI/css/'));
+ app.use("/scripts", express.static(__dirname + 'UI/js/'));
+ app.use("/images",  express.static(__dirname + 'UI/images/'));
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/index.html`));
+});
 
 
 
