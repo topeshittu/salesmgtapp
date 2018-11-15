@@ -71,9 +71,9 @@ app.get('/login', function(req, res) {
 
 
 // =================================================================
-// routes ==========================================================
+// test the build up user routes ==========================================================
 // =================================================================
-app.get('/setup', function(req, res) {
+app.get('/seeduser', function(req, res) {
 
 	// create a sample user
 	var nick = new User({ 
@@ -191,7 +191,7 @@ apiRoutes.get('/check', function(req, res) {
 	res.json(req.decoded);
 });
 
-app.use('/api/v1/api', apiRoutes);
+app.use('/api/v1/', apiRoutes);
 
 
 // ---------------------------------------------------------
