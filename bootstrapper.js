@@ -48,12 +48,24 @@ app.use(bodyParser.json({ type: 'application/json'}));
  app.use("/scripts", express.static(__dirname + 'UI/js/'));
  app.use("/images",  express.static(__dirname + 'UI/images/'));
 
+
+
+// =================================================================
+// front end routes for user==========================================================
+// =================================================================
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(`${__dirname}/UI/index.html`));
 });
 
 
+app.get('/login', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/login.html`));
+});
 
+app.get('/login', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/register.html`));
+});
 
 
 
