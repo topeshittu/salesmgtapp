@@ -17,7 +17,7 @@ import bodyParser from  'body-parser';
 import cookieParser from  'cookie-parser'; 
 import http from 'http';
 
-
+var ProductRoute = require('./app/routes/product');
 
 let app = express();
 
@@ -58,7 +58,7 @@ app.get('/seeduser', function(req, res) {
 
 	// create a sample user
 	var nick = new User({ 
-		name: 'Solomon grandy', 
+		name: 'Victor', 
 		password: 'saladin',
 		admin: true 
 	});
@@ -80,7 +80,7 @@ var apiRoutes = express.Router();
 // ---------------------------------------------------------
 // authentication (no middleware necessary since this isnt authenticated)
 // ---------------------------------------------------------
-// http://localhost:8080/api/authenticate
+// http://localhost:8080/api/v1/authenticate
 apiRoutes.post('/authenticate', function(req, res) {
 
 	// find the user
@@ -174,7 +174,13 @@ apiRoutes.get('/check', function(req, res) {
 
 app.use('/api/v1/', apiRoutes);
 
-
+apiRoutes.route("/products")
+	.get(ProductRoute.getProducts)
+	.post(ProductRoute.postProduct);
+apiRoutes.route("/products/:id")
+	.get(ProductRoute.getProduct)
+	.delete(ProductRoute.deleteProduct)
+	.put(ProductRoute.updateProduct);
 // =================================================================
 // front end routes for user==========================================================
 // =================================================================
@@ -194,6 +200,14 @@ app.get('/register', function(req, res) {
 
 app.get('/testing', function(req, res) {
 	Product.find({}, function(err, users) {
+			res.json(users);
+		});
+
+});
+
+
+app.get('/testuser', function(req, res) {
+	User.find({}, function(err, users) {
 			res.json(users);
 		});
 
