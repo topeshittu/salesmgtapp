@@ -4,9 +4,6 @@
 // =================================================================
 
 
-
-
-
 var config = require('./config'); // get our config file
 var User   = require('./app/models/user'); // get our mongoose model
 
@@ -43,7 +40,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));  
 
-app.get("/", (req, res) => res.json({message: "Welcome to our Bookstore!"}));
+app.get("/", (req, res) => res.json({message: "Welcome to our api application!"}));
 
 
 
@@ -61,8 +58,8 @@ app.get('/setup', function(req, res) {
 
 	// create a sample user
 	var nick = new User({ 
-		name: 'Nick Cerminara', 
-		password: 'password',
+		name: 'Solomon grandy', 
+		password: 'saladin',
 		admin: true 
 	});
 	nick.save(function(err) {
