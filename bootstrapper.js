@@ -6,7 +6,7 @@
 
 var config = require('./config'); // get our config file
 var User   = require('./app/models/user'); // get our mongoose model
-
+var Product = require('./app/models/product');
 import jwt from 'jsonwebtoken'; //to verify token set during login
 import express from 'express';
 import mongoose from 'mongoose';
@@ -47,25 +47,6 @@ app.use(bodyParser.json({ type: 'application/json'}));
  app.use("/styles",  express.static(__dirname + 'UI/css/'));
  app.use("/scripts", express.static(__dirname + 'UI/js/'));
  app.use("/images",  express.static(__dirname + 'UI/images/'));
-
-
-
-// =================================================================
-// front end routes for user==========================================================
-// =================================================================
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(`${__dirname}/UI/index.html`));
-});
-
-
-app.get('/login', function(req, res) {
-    res.sendFile(path.join(`${__dirname}/UI/login.html`));
-});
-
-app.get('/login', function(req, res) {
-    res.sendFile(path.join(`${__dirname}/UI/register.html`));
-});
 
 
 
@@ -194,11 +175,28 @@ apiRoutes.get('/check', function(req, res) {
 app.use('/api/v1/', apiRoutes);
 
 
-// ---------------------------------------------------------
-// front end routes
-// ---------------------------------------------------------
-app.get('/', function(req, res){
-   res.render();
+// =================================================================
+// front end routes for user==========================================================
+// =================================================================
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/index.html`));
+});
+
+
+app.get('/login', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/login.html`));
+});
+
+app.get('/register', function(req, res) {
+    res.sendFile(path.join(`${__dirname}/UI/register.html`));
+});
+
+app.get('/testing', function(req, res) {
+	Product.find({}, function(err, users) {
+			res.json(users);
+		});
+
 });
 // =================================================================
 // start the server ================================================
